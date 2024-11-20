@@ -1,0 +1,75 @@
+/* General */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #000;
+    color: #fff;
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+  }
+  
+  /* Título principal */
+  .main-title {
+    background-color: #1e1e1e;
+    padding: 20px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(255, 255, 255, 0.2);
+  }
+  
+  .main-title h1 {
+    font-size: 1.8rem;
+    color: #ee6d40;
+    margin: 0;
+  }
+  
+  /* Subtítulos */
+  .sub-title {
+    background-color: #2c2c2c;
+    padding: 10px;
+    margin: 20px 0;
+    border-radius: 5px;
+    box-shadow: 0 3px 5px rgba(255, 255, 255, 0.2);
+  }
+  
+  .sub-title h2 {
+    font-size: 1.5rem;
+    color: #f1f1f1;
+    margin: 0;
+  }
+  
+  /* Contenedores de imágenes */
+  .image-container {
+    margin: 20px;
+    text-align: center;
+  }
+  
+  .image-wrapper {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .img-original {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 10px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+  }
+  
+  .img-original:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 12px rgba(255, 255, 255, 0.5);
+  }
+  
+  .filtered-overlay {
+    border-radius: 10px;
+    cursor: pointer;
+  }
+  
+  p {
+    margin-top: 10px;
+    color: #ccc;
+    font-size: 0.9 rem;
+  }
+  

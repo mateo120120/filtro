@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Procesamiento de Imágenes</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+  <!-- Título Principal -->
+  <div class="main-title">
+    <h1>Filtro Bilateral y Sharpening con énfasis en bordes</h1>
+  </div>
+
+    <div class="sub-title">
+    <h3>Si desea ver el filtro presione sobre la imagen</h3 >
+    </div>
+
+  <!-- Sección Filtro Bilateral -->
+  <div class="section">
+    <div class="sub-title">
+      <h2>Bilateral</h2>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-lg-3 col-md-4 col-sm-6 image-container">
+        <div class="image-wrapper">
+          <img src="./ave.jpg" alt="Ave Original" class="img-original" onclick="showFilteredImage(this, './ave_bilateral.png')">
+          <p>Imagen 1</p>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-4 col-sm-6 image-container">
+        <div class="image-wrapper">
+          <img src="./ojos.jpg" alt="Ojos Original" class="img-original" onclick="showFilteredImage(this, './ojos_bilateral.png')">
+          <p>Imagen 2</p>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-4 col-sm-6 image-container">
+        <div class="image-wrapper">
+          <img src="./perro.jpg" alt="Perro Original" class="img-original" onclick="showFilteredImage(this, './perro_bilateral.png')">
+          <p>Imagen 3</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sección Filtro Sharpening -->
+  <div class="section">
+    <div class="sub-title">
+      <h2>Sharpening</h2>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-lg-3 col-md-4 col-sm-6 image-container">
+        <div class="image-wrapper">
+          <img src="./Cuenca.jpg" alt="Cuenca Original" class="img-original" onclick="showFilteredImage(this, './Cuenca_sharpening.png')">
+          <p>Imagen 1</p>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-4 col-sm-6 image-container">
+        <div class="image-wrapper">
+          <img src="./gato.jpg" alt="Gato Original" class="img-original" onclick="showFilteredImage(this, './gato_sharpening.png')">
+          <p>Imagen 2</p>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-4 col-sm-6 image-container">
+        <div class="image-wrapper">
+          <img src="./niño.jpg" alt="Niño Original" class="img-original" onclick="showFilteredImage(this, './niño_sharpening.png')">
+          <p>Imagen 3</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Script para mostrar imágenes filtradas -->
+  <script>
+    function showFilteredImage(originalImage, filteredImagePath) {
+        // Eliminar cualquier superposición previa
+        const existingOverlay = document.querySelector('.filtered-overlay');
+        if (existingOverlay) existingOverlay.remove();
+      
+        // Crear una superposición
+        const overlay = document.createElement('img');
+        overlay.src = filteredImagePath;
+        overlay.alt = 'Imagen Filtrada';
+        overlay.className = 'filtered-overlay';
+      
+        // Calcular el tamaño de la imagen original
+        const originalRect = originalImage.getBoundingClientRect();
+      
+        // Posicionar sobre la imagen original
+        const parent = originalImage.parentElement;
+        parent.style.position = 'relative';
+        overlay.style.position = 'absolute';
+        overlay.style.top = '0';
+        overlay.style.left = '0';
+        overlay.style.width = `${originalRect.width}px`;
+        overlay.style.height = `${originalRect.height}px`;
+        overlay.style.zIndex = '10';
+      
+        parent.appendChild(overlay);
+      
+        // Quitar superposición al hacer clic
+        overlay.addEventListener('click', () => overlay.remove());
+      }
+  </script>
+</body>
+</html>
